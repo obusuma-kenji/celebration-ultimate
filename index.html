@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界に一つだけの、オリジナルお祝いソング | AI×プロ編集</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Noto+Sans+JP:wght@300;400;600;700;900&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Noto Sans JP', sans-serif; line-height: 1.8; color: #2c3e50; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* ヒーロー */
+        .hero {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
+            color: white;
+            padding: 120px 20px 100px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 3.2rem;
+            font-weight: 900;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+        .highlight { color: #FFD700; }
+        .hero-cta {
+            display: inline-block;
+            background: #FFD700;
+            color: #333;
+            padding: 22px 55px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(255,215,0,0.3);
+            transition: all 0.3s ease;
+        }
+        .hero-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(255,215,0,0.4);
+        }
+        
+        /* 共通 */
+        section { padding: 100px 20px; }
+        h2 {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            padding-bottom: 25px;
+        }
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+        
+        /* 納期バナー */
+        .delivery {
+            background: #f8f9fa;
+            padding: 80px 20px;
+        }
+        .delivery-box {
+            max-width: 700px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 50px;
+            border-radius: 25px;
+            color: white;
+            text-align: center;
+        }
+        .delivery-title { font-size: 2.5rem; font-weight: 900; margin: 20px 0; }
+        
+        /* 問題提起 */
+        .problem { background: white; }
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+        }
+        .problem-card {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        .problem-icon { font-size: 3.5rem; margin-bottom: 25px; }
+        
+        /* 解決策 */
+        .solution {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .solution h2 { color: white; }
+        .solution h2::after { background: white; }
+        .solution-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 35px;
+        }
+        .feature-card {
+            background: rgba(255,255,255,0.15);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        .feature-icon { font-size: 4rem; margin-bottom: 25px; }
+        
+        /* 音楽プレイヤー */
+        .music-player-section {
+            background: #121212;
+            color: white;
+            padding: 100px 20px 150px;
+        }
+        .music-player-section h2 { color: white; }
+        .music-player-section h2::after { background: #1DB954; }
+        .playlist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 100px;
+        }
+        .playlist-card {
+            background: #181818;
+            border-radius: 15px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .playlist-card:hover {
+            background: #282828;
+            transform: translateY(-8px);
+        }
+        .playlist-card.active {
+            border: 2px solid #1DB954;
+        }
+        .playlist-cover {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+        }
+        .play-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .playlist-card:hover .play-overlay {
+            opacity: 1;
+        }
+        .play-icon {
+            width: 60px;
+            height: 60px;
+            background: #1DB954;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 8px 24px rgba(29, 185, 84, 0.4);
+        }
+        .playlist-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .playlist-desc {
+            font-size: 0.9rem;
+            color: #b3b3b3;
+            line-height: 1.6;
+        }
+        .playlist-tag {
+            display: inline-block;
+            background: rgba(29, 185, 84, 0.2);
+            color: #1DB954;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+        
+        /* タイムライン */
+        .timeline { background: white; }
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .timeline-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .timeline-icon { font-size: 4rem; margin-bottom: 20px; }
+        
+        /* Chatwork */
+        .chatwork { background: #f8f9fa; }
+        .chatwork-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        .chatwork-header {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+        }
+        .chatwork-content { padding: 40px; }
+        .info-box {
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .info-box.warning { background: #fff3cd; border-left: 4px solid #ffc107; }
+        .info-box.danger { background: #f8d7da; border-left: 4px solid #dc3545; }
+        .info-box.info { background: #d1ecf1; border-left: 4px solid #17a2b8; }
+        
+        /* 料金 */
+        .pricing { background: #f8f9fa; }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+        .pricing-card {
+            background: white;
+            border-radius: 25px;
+            padding: 50px 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+        .pricing-card.featured {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: scale(1.05);
+        }
+        .price-amount {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #667eea;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .pricing-card.featured .price-amount { color: white; }
+        .pricing-features {
+            list-style: none;
+            margin: 30px 0;
+        }
+        .pricing-features li {
+            padding: 14px 0 14px 35px;
+            position: relative;
+        }
+        .pricing-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #1DB954;
+            font-weight: 900;
+            font-size: 1.3rem;
+        }
+        .pricing-card.featured .pricing-features li::before { color: white; }
+        .pricing-cta {
+            display: block;
+            text-align: center;
+            background: #667eea;
+            color: white;
+            padding: 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+        }
+        .pricing-cta:hover {
+            transform: scale(1.05);
+        }
+        .pricing-card.featured .pricing-cta {
+            background: white;
+            color: #667eea;
+        }
+        
+        /* FAQ */
+        .faq { background: white; }
+        .faq-item {
+            background: #f8f9fa;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .faq-question {
+            padding: 25px 35px;
+            cursor: pointer;
+            font-weight: 700;
+            position: relative;
+            color: #667eea;
+        }
+        .faq-question::after {
+            content: '+';
+            position: absolute;
+            right: 35px;
+            font-size: 2rem;
+            color: #667eea;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        .faq-answer-content { padding: 0 35px 25px; }
+        
+        /* 固定プレイヤー */
+        .player-control {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #181818;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            z-index: 1000;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        .player-control.show {
+            transform: translateY(0);
+        }
+        .player-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .track-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .track-title-small {
+            font-size: 0.95rem;
+            font-weight: 700;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: white;
+        }
+        .track-artist-small {
+            font-size: 0.85rem;
+            color: #b3b3b3;
+        }
+        .controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .control-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+        .control-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+        .play-btn-small {
+            width: 45px;
+            height: 45px;
+            background: #1DB954;
+            font-size: 1.3rem;
+        }
+        .play-btn-small:hover {
+            background: #1ed760;
+        }
+        .progress-section {
+            flex: 2;
+        }
+        .progress-bar-player {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            cursor: pointer;
+            position: relative;
+        }
+        .progress-player {
+            height: 100%;
+            background: #1DB954;
+            border-radius: 3px;
+            width: 0%;
+        }
+        .time-display {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: #b3b3b3;
+            margin-top: 5px;
+        }
+        
+        /* フッター */
+        footer {
+            background: #1a1a2e;
+            color: white;
+            padding: 70px 20px 35px;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto 45px;
+        }
+        
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .playlist-grid, .pricing-grid, .timeline-grid, .footer-content {
+                grid-template-columns: 1fr;
+            }
+            .player-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <audio id="audioPlayer" preload="metadata"></audio>
+    
+    <!-- ヒーロー -->
+    <section class="hero">
+        <div class="container">
+            <div style="display:inline-block;background:rgba(255,255,255,0.2);padding:10px 25px;border-radius:30px;font-size:0.9rem;margin-bottom:25px;backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.3);">✨ AI×プロ編集で実現する、本格オリジナルソング ✨</div>
+            <h1>世界に一つだけの、<br><span class="highlight">オリジナルお祝いソング</span>を。</h1>
+            <p style="font-size:1.3rem;margin-bottom:45px;line-height:1.8;">誕生日、結婚式、退職、記念日に。<br>大切な人への想いを、音楽に乗せて届けます。</p>
+            <a href="https://forms.gle/Kqw3CDYwA4Ztn3w56" target="_blank" class="hero-cta">今すぐ申し込む →</a>
+            
+            <div style="display:flex;justify-content:center;gap:50px;margin-top:60px;flex-wrap:wrap;">
+                <div style="text-align:center;">
+                    <div style="font-size:2.8rem;font-weight:900;color:#FFD700;line-height:1;margin-bottom:8px;">¥30,000〜</div>
+                    <div style="font-size:0.95rem;opacity:0.9;">明確な料金</div>
+                </div>
+                <div style="text-align:center;">
+                    <div style="font-size:2.8rem;font-weight:900;color:#FFD700;line-height:1;margin-bottom:8px;">最短10日</div>
+                    <div style="font-size:0.95rem;opacity:0.9;">スピード納品</div>
+                </div>
+                <div style="text-align:center;">
+                    <div style="font-size:2.8rem;font-weight:900;color:#FFD700;line-height:1;margin-bottom:8px;">2曲提供</div>
+                    <div style="font-size:0.95rem;opacity:0.9;">選べるデモ</div>
+                </div>
+                <div style="text-align:center;">
+                    <div style="font-size:2.8rem;font-weight:900;color:#FFD700;line-height:1;margin-bottom:8px;">完全譲渡</div>
+                    <div style="font-size:0.95rem;opacity:0.9;">著作権</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 納期バナー -->
+    <section class="delivery">
+        <div class="container">
+            <div class="delivery-box">
+                <div style="background:rgba(255,255,255,0.2);padding:8px 20px;border-radius:20px;display:inline-block;margin-bottom:20px;">📅 現在の納品時期の目安</div>
+                <div class="delivery-title">お申込みから約2週間</div>
+                <p>※現在の受注状況に基づく目安です。正確な納期は申込後にご案内いたします。</p>
+                <p style="margin-top:15px;opacity:0.8;">最終更新：2026年2月5日</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 問題提起 -->
+    <section class="problem">
+        <div class="container">
+            <h2>こんなお悩み、ありませんか？</h2>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">😞</div>
+                    <h3>既製品では心が込もらない</h3>
+                    <p>市販の音楽では、その人のための特別感が出ない。もっと心に響く贈り物がしたい。</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">📝</div>
+                    <h3>メッセージカードだけでは物足りない</h3>
+                    <p>文字だけでは伝えきれない想い。音楽という新しい形で感動を届けたい。</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">💸</div>
+                    <h3>プロに依頼すると高額</h3>
+                    <p>音楽制作のプロに頼むと数十万円。もっと手頃な価格で実現したい。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 解決策 -->
+    <section class="solution">
+        <div class="container">
+            <h2>「音楽」が、想いを形にします。</h2>
+            <div class="solution-features">
+                <div class="feature-card">
+                    <div class="feature-icon">🎵</div>
+                    <h3>プロ品質の楽曲</h3>
+                    <p>AIで素材生成、プロが最終調整。感情豊かな仕上がり。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💝</div>
+                    <h3>その人だけの歌詞</h3>
+                    <p>名前や思い出を歌詞に盛り込み、世界に一つだけの楽曲に。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>SNSで共有可能</h3>
+                    <p>動画付きプランなら、Instagram・TikTokで感動を共有。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>短納期・適正価格</h3>
+                    <p>最短10日、¥30,000〜。お祝いの日に間に合います。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 音楽プレイヤー -->
+    <section class="music-player-section">
+        <div class="container">
+            <h2>🎵 実際の楽曲を試聴できます</h2>
+            <p style="text-align:center;font-size:1.2rem;color:#b3b3b3;margin-bottom:60px;">クリックで実際のサンプル音源を再生できます</p>
+            
+            <div class="playlist-grid">
+                <div class="playlist-card" data-track="0">
+                    <div class="playlist-cover">
+                        🎂
+                        <div class="play-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="playlist-tag">誕生日</span>
+                        <h3 class="playlist-title">60歳のバースデーソング</h3>
+                        <p class="playlist-desc">「いつもありがとう」の気持ちを歌詞に。ピアノバラード調。</p>
+                    </div>
+                </div>
+                
+                <div class="playlist-card" data-track="1">
+                    <div class="playlist-cover" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        💍
+                        <div class="play-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="playlist-tag">結婚式</span>
+                        <h3 class="playlist-title">プロフィールムービーBGM</h3>
+                        <p class="playlist-desc">二人の出会いから結婚までのストーリー。アコースティックギター。</p>
+                    </div>
+                </div>
+                
+                <div class="playlist-card" data-track="2">
+                    <div class="playlist-cover" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        🎁
+                        <div class="play-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="playlist-tag">退職祝い</span>
+                        <h3 class="playlist-title">定年退職サプライズソング</h3>
+                        <p class="playlist-desc">40年間の功績を讃える楽曲。部下全員の寄せ書きを歌詞に。</p>
+                    </div>
+                </div>
+                
+                <div class="playlist-card" data-track="3">
+                    <div class="playlist-cover" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        💐
+                        <div class="play-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="playlist-tag">記念日</span>
+                        <h3 class="playlist-title">金婚式・両親への贈り物</h3>
+                        <p class="playlist-desc">50年の歩みを振り返る特別な楽曲。感謝のメッセージ。</p>
+                    </div>
+                </div>
+                
+                <div class="playlist-card" data-track="4">
+                    <div class="playlist-cover" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                        👴
+                        <div class="play-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="playlist-tag">還暦</span>
+                        <h3 class="playlist-title">還暦祝いソング</h3>
+                        <p class="playlist-desc">60年の人生を音楽で振り返る。家族からのメッセージ。</p>
+                    </div>
+                </div>
+                
+                <div class="playlist-card" data-track="5">
+                    <div class="playlist-cover" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
+                        🎓
+                        <div class="play-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="playlist-tag">卒業</span>
+                        <h3 class="playlist-title">卒業ソング</h3>
+                        <p class="playlist-desc">新しい門出を祝う楽曲。クラス全員の思い出を歌詞に。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- タイムライン -->
+    <section class="timeline">
+        <div class="container">
+            <h2>制作タイムラインと納期</h2>
+            <p style="text-align:center;font-size:1.2rem;color:#666;margin-bottom:60px;">お申込みから納品まで、すべてオンラインで完結します</p>
+            <div class="timeline-grid">
+                <div class="timeline-card">
+                    <div class="timeline-icon">📝</div>
+                    <h3 style="margin:15px 0;">契約・入金</h3>
+                    <p style="color:#666;margin:15px 0;">契約書への署名・捺印と料金のお振込</p>
+                    <p style="color:#667eea;font-weight:600;">Start</p>
+                </div>
+                <div class="timeline-card">
+                    <div class="timeline-icon">🎵</div>
+                    <h3 style="margin:15px 0;">初回デモ音源</h3>
+                    <p style="color:#666;margin:15px 0;">2曲のデモ音源を制作</p>
+                    <p style="color:#667eea;font-weight:600;">入金確認から10営業日以内</p>
+                </div>
+                <div class="timeline-card">
+                    <div class="timeline-icon">👁️</div>
+                    <h3 style="margin:15px 0;">修正期間</h3>
+                    <p style="color:#666;margin:15px 0;">デモ音源をご確認</p>
+                    <p style="color:#667eea;font-weight:600;">確認</p>
+                </div>
+                <div class="timeline-card">
+                    <div class="timeline-icon">🔧</div>
+                    <h3 style="margin:15px 0;">修正対応</h3>
+                    <p style="color:#666;margin:15px 0;">ご依頼に応じて修正</p>
+                    <p style="color:#667eea;font-weight:600;">各依頼から3営業日以内</p>
+                </div>
+                <div class="timeline-card">
+                    <div class="timeline-icon">📦</div>
+                    <h3 style="margin:15px 0;">最終納品</h3>
+                    <p style="color:#666;margin:15px 0;">完成した楽曲と付随コンテンツを納品</p>
+                    <p style="color:#667eea;font-weight:600;">初回デモ納品日から30日以内</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Chatwork -->
+    <section class="chatwork">
+        <div class="container">
+            <h2>連絡手段と指示の記録</h2>
+            <div class="chatwork-box">
+                <div class="chatwork-header">
+                    <div style="font-size:4rem;margin-bottom:20px;">💬</div>
+                    <h3 style="font-size:2rem;margin-bottom:15px;">Chatwork（チャットワーク）</h3>
+                    <p>すべての連絡はChatworkで行います</p>
+                </div>
+                <div class="chatwork-content">
+                    <p style="font-size:1.1rem;font-weight:600;margin-bottom:30px;">すべての連絡（指示、修正依頼、素材提供、納品）はChatworkで行います。</p>
+                    
+                    <div class="info-box warning">
+                        <strong>理由：</strong>契約上の権利義務の根拠となります。
+                    </div>
+                    
+                    <div class="info-box danger">
+                        <strong>✗</strong> 口頭、電話、対面での指示は、文書化されない限り効力を持ちません。
+                    </div>
+                    
+                    <div class="info-box info">
+                        <h4 style="font-size:1.1rem;margin-bottom:15px;color:#1a1a2e;">🔰 Chatworkとは？</h4>
+                        <p style="line-height:1.9;">Chatwork公式サイト（<a href="https://go.chatwork.com/ja/" target="_blank" style="color:#17a2b8;">https://go.chatwork.com/ja/</a>）にアクセスし、「新規登録（無料）」ボタンからアカウントを作成します。メールアドレスだけで簡単に登録できます。</p>
+                        <p style="line-height:1.9;margin-top:15px;">ご契約後、登録されたメールアドレス宛にChatworkの招待メールが届きます。LINEと同じような感覚でお使いいただけます。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 料金プラン -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2>料金プラン</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3 style="font-size:1.8rem;text-align:center;margin-bottom:10px;">シンプル</h3>
+                    <p style="text-align:center;color:#666;margin-bottom:20px;">楽曲のみ（1分30秒）</p>
+                    <div class="price-amount">¥30,000<span style="font-size:1.3rem;">(税別)</span></div>
+                    <ul class="pricing-features">
+                        <li>オリジナル楽曲制作</li>
+                        <li>初回デモ2曲納品</li>
+                        <li>修正2回まで無料</li>
+                        <li>MP3 + WAV形式</li>
+                        <li>著作権完全譲渡</li>
+                    </ul>
+                    <a href="https://forms.gle/Kqw3CDYwA4Ztn3w56" target="_blank" class="pricing-cta">このプランで申し込む</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div style="background:rgba(255,255,255,0.2);padding:5px 15px;border-radius:20px;display:inline-block;margin-bottom:15px;font-size:0.85rem;">⭐ 人気No.1</div>
+                    <h3 style="font-size:1.8rem;text-align:center;margin-bottom:10px;">スタンダード</h3>
+                    <p style="text-align:center;opacity:0.9;margin-bottom:20px;">楽曲 + スライド動画</p>
+                    <div class="price-amount">¥50,000<span style="font-size:1.3rem;">(税別)</span></div>
+                    <ul class="pricing-features">
+                        <li>シンプルプランの内容</li>
+                        <li>写真スライド動画</li>
+                        <li>歌詞字幕付き</li>
+                        <li>SNS投稿最適化</li>
+                        <li>縦型・横型選択可</li>
+                    </ul>
+                    <a href="https://forms.gle/Kqw3CDYwA4Ztn3w56" target="_blank" class="pricing-cta">このプランで申し込む</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3 style="font-size:1.8rem;text-align:center;margin-bottom:10px;">プレミアム</h3>
+                    <p style="text-align:center;color:#666;margin-bottom:20px;">プロ品質の動画編集</p>
+                    <div class="price-amount">¥80,000<span style="font-size:1.3rem;">(税別)</span></div>
+                    <ul class="pricing-features">
+                        <li>スタンダードの内容</li>
+                        <li>高品質動画編集</li>
+                        <li>エフェクト・切り替え</li>
+                        <li>カラーグレーディング</li>
+                        <li>10枚以上の写真対応</li>
+                    </ul>
+                    <a href="https://forms.gle/Kqw3CDYwA4Ztn3w56" target="_blank" class="pricing-cta">このプランで申し込む</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container">
+            <h2>よくあるご質問</h2>
+            <div style="max-width:900px;margin:0 auto;">
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">Q1. 楽曲のクオリティとAI活用について教えてください</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>ご安心ください。当サービスではAIを「素材生成」に使用し、最終的な構成やニュアンスの調整はプロの人間が行います。過去の事例でも「AI特有の無機質さ」を感じさせない、感情豊かな楽曲（バラード等）の制作実績がございます。</p>
+                            <p>また、楽器の指定も可能です。「ピアノソロで」「アコースティックギターを中心に」といったご要望をヒアリング時にお聞かせください。AIのスピード感と、人の感性を融合させた作品をご提供します。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">Q2. 著作権の完全譲渡後、どのような利用が可能ですか？</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>はい、料金完済後、著作権は貴殿に「完全譲渡」いたします。したがって、YouTubeのBGMとしての恒久的な利用や、Spotify等での楽曲販売も自由に行っていただけます。</p>
+                            <p>商用利用を含め、ご自身の資産として自由にご活用ください。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">Q3. 音楽の知識がなくても大丈夫ですか？</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>音楽知識は全く必要ありません。「明るい・暗い」「テンポが速い・ゆったり」といった抽象的な言葉で十分です。</p>
+                            <p>お相手の性格、趣味、思い出のエピソードなどをお聞かせいただければ、それを元に最適な楽曲を制作いたします。言語化できない部分は、ヒアリングで私たちが引き出します。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">Q4. 修正2回とは何を指しますか？</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>修正1回とは、「一度にご依頼いただく修正項目のまとまり」を指します。例えば、「テンポ変更」と「歌詞の一部変更」を同時にご指示いただいた場合は「1回」とカウントしますのでご安心ください。</p>
+                            <p>ただし、デモ制作後に「バラードからロックへ変更」といった根本的なジャンル変更をご希望される場合は、作り直しとなるため別途追加料金のご相談をさせていただく場合がございます。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">Q5. Chatworkは使ったことがないのですが...</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>新しいツールの導入にご不安をおかけし申し訳ありません。ChatworkはLINEのように直感的に使えるツールですが、登録から使用方法まで当方で丁寧にサポートいたしますのでご安心ください。</p>
+                            <p>ビジネス上の重要なデータのやり取りや、言った・言わないのトラブルを防ぐために、記録が確実に残るChatworkに統一させていただいております。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">Q6. お祝いの日が迫っています。特急対応は可能ですか？</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>お祝いの日が迫っているとのこと、承知いたしました。基本的には品質担保のため約2週間の期間をいただいておりますが、現在の受注状況によっては、特急対応（最短10日程度での完納）が可能な場合もございます。</p>
+                            <p>スケジュールを調整いたしますので、お申し込みフォームの備考欄、または事前のお問い合わせにて、具体的な希望納品日をお知らせください。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">Q7. 動画プランは写真1枚だけでも作れますか？</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>写真1枚のみでも制作は可能です。その場合、画像を魅力的に見せるカメラワーク（ズームやパン）や歌詞のアニメーションを駆使して、飽きさせない動画に仕上げます。</p>
+                            <p>もちろん、複数の写真をいただければ、それらを組み合わせてよりリッチな動画に編集することも可能です。素材の枚数に決まりはありませんが、3〜5枚程度あるとより物語性が増します。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">Q8. 「初回デモ納品前の全額返金」とは具体的にどういう意味ですか？</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>契約・入金後であっても、実際に制作されたデモ曲をお客様にお渡しする「前」であれば、理由を問わずキャンセル・返金が可能という意味です。</p>
+                            <p>デモ曲をお聴きになった後のキャンセル（返金）は、制作実費が発生しているため原則お受けできませんが、イメージに近づけるための「無料修正」を2回設けておりますので、納得いくまで調整させていただきます。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">Q9. どのようなファイル形式で納品されますか？</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>楽曲ファイルは、汎用性の高い「MP3」と、CD制作にも使える高音質の「WAV」の両形式で納品いたします。</p>
+                            <p>動画プランについては、ご希望に合わせて「縦型（TikTok/リール用）」か「横型（YouTube用）」のいずれか、あるいは両方の比率で「MP4」形式にて作成可能です。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">Q10. 歌詞に特定のキーワードを入れてもらうことは可能ですか？</div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>歌詞はAIが生成したベースを元に、プロが推敲を行います。「必ず入れたいキーワード」や「重要なセリフ」の指定は大歓迎です。</p>
+                            <p>例えば、誕生日なら「60年分のありがとう」、結婚式なら「これからもずっと一緒に」など、特別な言葉を歌詞に織り込むことで、より感動的な楽曲になります。</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+    <!-- 固定プレイヤー -->
+    <div class="player-control" id="playerControl">
+        <div class="player-content">
+            <div class="track-info">
+                <div class="track-title-small" id="playerTrackTitle">60歳のバースデーソング</div>
+                <div class="track-artist-small" id="playerTrackArtist">サンプル楽曲</div>
+            </div>
+            <div class="controls">
+                <button class="control-btn" id="prevBtn">⏮</button>
+                <button class="control-btn play-btn-small" id="playBtnSmall">▶</button>
+                <button class="control-btn" id="nextBtn">⏭</button>
+            </div>
+            <div class="progress-section">
+                <div class="progress-bar-player" id="progressBarPlayer">
+                    <div class="progress-player" id="progressPlayer"></div>
+                </div>
+                <div class="time-display">
+                    <span id="currentTime">0:00</span>
+                    <span id="duration">0:00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- フッター -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3 style="margin-bottom:20px;">オリジナルお祝いソング制作サービス</h3>
+                <p>AI技術×プロの感性で、世界に一つだけの特別な楽曲を制作。大切な人への最高の贈り物を。</p>
+                <p style="margin-top:18px;"><strong>運営：</strong>新井健司<br><strong>住所：</strong>〒369-1216 埼玉県大里郡寄居町富田656</p>
+            </div>
+            <div>
+                <h4 style="margin-bottom:15px;">サービス</h4>
+                <ul style="list-style:none;">
+                    <li style="padding:6px 0;"><a href="#pricing" style="color:rgba(255,255,255,0.8);text-decoration:none;">料金プラン</a></li>
+                    <li style="padding:6px 0;"><a href="index.html" style="color:rgba(255,255,255,0.8);text-decoration:none;">電子書籍向けサービス</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="margin-bottom:15px;">お問い合わせ</h4>
+                <ul style="list-style:none;">
+                    <li style="padding:6px 0;"><a href="https://forms.gle/Kqw3CDYwA4Ztn3w56" target="_blank" style="color:rgba(255,255,255,0.8);text-decoration:none;">申込フォーム</a></li>
+                </ul>
+            </div>
+        </div>
+        <div style="text-align:center;padding-top:35px;border-top:1px solid rgba(255,255,255,0.1);opacity:0.7;">
+            <p>&copy; 2025 オリジナルソング制作サービス（新井健司）</p>
+        </div>
+    </footer>
+    
+    <script>
+        // 楽曲データ
+        const tracks = [
+            { title: '60歳のバースデーソング', artist: 'サンプル楽曲', file: '60歳のバースデーソング_send.m4a' },
+            { title: 'プロフィールムービーBGM', artist: 'サンプル楽曲', file: 'プロフィールムービーBGM_send.m4a' },
+            { title: '定年退職サプライズソング', artist: 'サンプル楽曲', file: '定年退職サプライズソング_send.m4a' },
+            { title: '金婚式・両親への贈り物', artist: 'サンプル楽曲', file: '金婚式_両親への贈り物_send.m4a' },
+            { title: '還暦祝いソング', artist: 'サンプル楽曲', file: '還暦祝いソング_send.m4a' },
+            { title: '卒業ソング', artist: 'サンプル楽曲', file: '卒業ソング_send.m4a' }
+        ];
+        
+        const audio = document.getElementById('audioPlayer');
+        const playerControl = document.getElementById('playerControl');
+        const playBtnSmall = document.getElementById('playBtnSmall');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const progressPlayer = document.getElementById('progressPlayer');
+        const progressBarPlayer = document.getElementById('progressBarPlayer');
+        const currentTimeEl = document.getElementById('currentTime');
+        const durationEl = document.getElementById('duration');
+        const playerTrackTitle = document.getElementById('playerTrackTitle');
+        const playerTrackArtist = document.getElementById('playerTrackArtist');
+        
+        let currentTrack = null;
+        let isPlaying = false;
+        
+        function formatTime(seconds) {
+            if (isNaN(seconds)) return '0:00';
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+        
+        function loadTrack(trackIndex) {
+            currentTrack = trackIndex;
+            const track = tracks[trackIndex];
+            audio.src = track.file;
+            playerTrackTitle.textContent = track.title;
+            playerTrackArtist.textContent = track.artist;
+            
+            document.querySelectorAll('.playlist-card').forEach((card, index) => {
+                card.classList.toggle('active', index === trackIndex);
+            });
+            
+            audio.addEventListener('loadedmetadata', function() {
+                durationEl.textContent = formatTime(audio.duration);
+            }, { once: true });
+        }
+        
+        function togglePlay() {
+            if (currentTrack === null) loadTrack(0);
+            isPlaying ? audio.pause() : audio.play();
+        }
+        
+        document.querySelectorAll('.playlist-card').forEach((card, index) => {
+            card.addEventListener('click', () => {
+                if (currentTrack === index) {
+                    togglePlay();
+                } else {
+                    loadTrack(index);
+                    audio.play();
+                    playerControl.classList.add('show');
+                }
+            });
+        });
+        
+        playBtnSmall.addEventListener('click', togglePlay);
+        prevBtn.addEventListener('click', () => {
+            if (currentTrack === null) return;
+            loadTrack(currentTrack > 0 ? currentTrack - 1 : tracks.length - 1);
+            audio.play();
+        });
+        nextBtn.addEventListener('click', () => {
+            if (currentTrack === null) return;
+            loadTrack(currentTrack < tracks.length - 1 ? currentTrack + 1 : 0);
+            audio.play();
+        });
+        
+        audio.addEventListener('play', () => {
+            isPlaying = true;
+            playBtnSmall.textContent = '⏸';
+        });
+        audio.addEventListener('pause', () => {
+            isPlaying = false;
+            playBtnSmall.textContent = '▶';
+        });
+        audio.addEventListener('timeupdate', () => {
+            if (audio.duration) {
+                progressPlayer.style.width = (audio.currentTime / audio.duration * 100) + '%';
+                currentTimeEl.textContent = formatTime(audio.currentTime);
+            }
+        });
+        audio.addEventListener('ended', () => {
+            if (currentTrack < tracks.length - 1) {
+                loadTrack(currentTrack + 1);
+                audio.play();
+            } else {
+                isPlaying = false;
+                playBtnSmall.textContent = '▶';
+            }
+        });
+        
+        progressBarPlayer.addEventListener('click', (e) => {
+            if (!audio.duration) return;
+            const rect = e.currentTarget.getBoundingClientRect();
+            audio.currentTime = ((e.clientX - rect.left) / rect.width) * audio.duration;
+        });
+        
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            answer.style.maxHeight = answer.style.maxHeight ? null : answer.scrollHeight + 'px';
+        }
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+</body>
+</html>
