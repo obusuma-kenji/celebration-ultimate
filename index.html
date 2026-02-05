@@ -11,37 +11,70 @@
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         
         /* ヒーロー */
-        .hero {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
-            color: white;
-            padding: 120px 20px 100px;
-            text-align: center;
-        }
-        .hero h1 {
-            font-family: 'Noto Serif JP', serif;
-            font-size: 3.2rem;
-            font-weight: 900;
-            margin-bottom: 30px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-        }
-        .highlight { color: #FFD700; }
-        .hero-cta {
-            display: inline-block;
-            background: #FFD700;
-            color: #333;
-            padding: 22px 55px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1.35rem;
-            font-weight: 700;
-            margin-top: 30px;
-            box-shadow: 0 10px 30px rgba(255,215,0,0.3);
-            transition: all 0.3s ease;
-        }
-        .hero-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(255,215,0,0.4);
-        }
+        .hero{
+  position: relative;
+  color: #ffffff;
+  padding: 150px 20px 120px;
+  text-align: center;
+
+  /* 写真＋グラデーション重ね */
+  background-image:
+    linear-gradient(
+      135deg,
+      rgba(102,126,234,0.72) 0%,
+      rgba(118,75,162,0.82) 100%
+    ),
+    url("qzoe1dqz.png"); /* ←画像名だけ調整 */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* 光と空気感を足すレイヤー */
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(
+      1200px 600px at 20% 25%,
+      rgba(255,255,255,0.28),
+      rgba(255,255,255,0) 60%
+    ),
+    radial-gradient(
+      900px 500px at 85% 30%,
+      rgba(0,0,0,0.25),
+      rgba(0,0,0,0) 65%
+    );
+  pointer-events:none;
+}
+
+/* 下方向を少し締めて高級感 */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0) 60%,
+    rgba(0,0,0,0.25) 100%
+  );
+  pointer-events:none;
+}
+
+/* テキストを最前面に */
+.hero .container{
+  position: relative;
+  z-index: 1;
+}
+
+/* 見出しの視認性を保証 */
+.hero h1{
+  text-shadow: 0 6px 25px rgba(0,0,0,0.55);
+}
+.hero p{
+  text-shadow: 0 4px 18px rgba(0,0,0,0.45);
+}
         
         /* 共通 */
         section { padding: 100px 20px; }
