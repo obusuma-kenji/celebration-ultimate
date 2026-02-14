@@ -96,6 +96,24 @@
             height: 5px;
             background: linear-gradient(90deg, #667eea, #764ba2);
         }
+
+        /* ヒーローCTAボタン */
+        .hero-cta {
+            display: inline-block;
+            background: #FFD700;
+            color: #333;
+            padding: 22px 55px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.35rem;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(255,215,0,0.3);
+            transition: all 0.3s ease;
+        }
+        .hero-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255,215,0,0.4);
+        }
         
         /* 納期バナー */
         .delivery {
@@ -537,7 +555,7 @@
             <div style="display:inline-block;background:rgba(255,255,255,0.2);padding:10px 25px;border-radius:30px;font-size:0.9rem;margin-bottom:25px;backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.3);">✨ AI×プロ編集で実現する、本格オリジナルソング ✨</div>
             <h1>世界に一つだけの、<br><span class="highlight">オリジナルお祝いソング</span>を。</h1>
             <p style="font-size:1.3rem;margin-bottom:45px;line-height:1.8;">誕生日、結婚式、退職、記念日に。<br>大切な人への想いを、音楽に乗せて届けます。</p>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSe8bnFIWBMR_mlAICYojLQwSQRa2m1MAOp4zLO4WGBrOFZpOg/viewform?usp=dialog" target="_blank" class="hero-cta">制作依頼シート →</a>
+            <a href="#sample-tracks" class="hero-cta">サンプル曲 →</a>
             
             <div style="display:flex;justify-content:center;gap:50px;margin-top:60px;flex-wrap:wrap;">
                 <div style="text-align:center;">
@@ -560,22 +578,12 @@
         </div>
     </section>
     
-    <!-- 納期バナー -->
-    <section class="delivery">
-        <div class="container">
-            <div class="delivery-box">
-                <div style="background:rgba(255,255,255,0.2);padding:8px 20px;border-radius:20px;display:inline-block;margin-bottom:20px;">📅 現在の納品時期の目安</div>
-                <div class="delivery-title">お申込みから約2週間</div>
-                <p>※現在の受注状況に基づく目安です。正確な納期は申込後にご案内いたします。</p>
-                <p style="margin-top:15px;opacity:0.8;">最終更新：2026年2月5日</p>
-            </div>
-        </div>
-    </section>
+
     
     <!-- 問題提起 -->
     <section class="problem">
         <div class="container">
-            <h2>こんなお悩み、ありませんか？</h2>
+            <h2>こんなお悩み、ありませんか?</h2>
             <div class="problem-grid">
                 <div class="problem-card">
                     <div class="problem-icon">😞</div>
@@ -626,7 +634,7 @@
     </section>
     
     <!-- 音楽プレイヤー -->
-    <section class="music-player-section">
+    <section class="music-player-section" id="sample-tracks">
         <div class="container">
             <h2>🎵 実際の楽曲を試聴できます</h2>
             <p style="text-align:center;font-size:1.2rem;color:#b3b3b3;margin-bottom:60px;">クリックで実際のサンプル音源を再生できます</p>
@@ -760,14 +768,14 @@
             <div class="chatwork-box">
                 <div class="chatwork-header">
                     <div style="font-size:4rem;margin-bottom:20px;">💬</div>
-                    <h3 style="font-size:2rem;margin-bottom:15px;">Chatwork（チャットワーク）</h3>
+                    <h3 style="font-size:2rem;margin-bottom:15px;">Chatwork(チャットワーク)</h3>
                     <p>すべての連絡はChatworkで行います</p>
                 </div>
                 <div class="chatwork-content">
-                    <p style="font-size:1.1rem;font-weight:600;margin-bottom:30px;">すべての連絡（指示、修正依頼、素材提供、納品）はChatworkで行います。</p>
+                    <p style="font-size:1.1rem;font-weight:600;margin-bottom:30px;">すべての連絡(指示、修正依頼、素材提供、納品)はChatworkで行います。</p>
                     
                     <div class="info-box warning">
-                        <strong>理由：</strong>契約上の権利義務の根拠となります。
+                        <strong>理由:</strong>契約上の権利義務の根拠となります。
                     </div>
                     
                     <div class="info-box danger">
@@ -775,8 +783,8 @@
                     </div>
                     
                     <div class="info-box info">
-                        <h4 style="font-size:1.1rem;margin-bottom:15px;color:#1a1a2e;">🔰 Chatworkとは？</h4>
-                        <p style="line-height:1.9;">Chatwork公式サイト（<a href="https://go.chatwork.com/ja/" target="_blank" style="color:#17a2b8;">https://go.chatwork.com/ja/</a>）にアクセスし、「新規登録（無料）」ボタンからアカウントを作成します。メールアドレスだけで簡単に登録できます。</p>
+                        <h4 style="font-size:1.1rem;margin-bottom:15px;color:#1a1a2e;">🔰 Chatworkとは?</h4>
+                        <p style="line-height:1.9;">Chatwork公式サイト(<a href="https://go.chatwork.com/ja/" target="_blank" style="color:#17a2b8;">https://go.chatwork.com/ja/</a>)にアクセスし、「新規登録(無料)」ボタンからアカウントを作成します。メールアドレスだけで簡単に登録できます。</p>
                         <p style="line-height:1.9;margin-top:15px;">ご契約後、登録されたメールアドレス宛にChatworkの招待メールが届きます。LINEと同じような感覚でお使いいただけます。</p>
                     </div>
                 </div>
@@ -791,7 +799,7 @@
             <div class="pricing-grid">
                 <div class="pricing-card">
                     <h3 style="font-size:1.8rem;text-align:center;margin-bottom:10px;">シンプル</h3>
-                    <p style="text-align:center;color:#666;margin-bottom:20px;">楽曲のみ（1分30秒）</p>
+                    <p style="text-align:center;color:#666;margin-bottom:20px;">楽曲のみ(1分30秒)</p>
                     <div class="price-amount">¥30,000<span style="font-size:1.3rem;">(税別)</span></div>
                     <ul class="pricing-features">
                         <li>オリジナル楽曲制作</li>
@@ -800,7 +808,7 @@
                         <li>MP3 + WAV形式</li>
                         <li>著作権完全譲渡</li>
                     </ul>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSe8bnFIWBMR_mlAICYojLQwSQRa2m1MAOp4zLO4WGBrOFZpOg/viewform?usp=dialog" target="_blank" class="pricing-cta">このプランで申し込む</a>
+                    <a href="#application-info" class="pricing-cta">このプランで申し込む</a>
                 </div>
                 
                 <div class="pricing-card featured">
@@ -821,7 +829,7 @@
                         縦型・横型の両方が必要な場合<br>
                         +¥10,000(税別)
                     </div>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSe8bnFIWBMR_mlAICYojLQwSQRa2m1MAOp4zLO4WGBrOFZpOg/viewform?usp=dialog" target="_blank" class="pricing-cta" style="margin-top:20px;">このプランで申し込む</a>
+                    <a href="#application-info" class="pricing-cta" style="margin-top:20px;">このプランで申し込む</a>
                 </div>
                 
                 <div class="pricing-card">
@@ -841,8 +849,166 @@
                         縦型・横型の両方が必要な場合<br>
                         +¥30,000(税別)
                     </div>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSe8bnFIWBMR_mlAICYojLQwSQRa2m1MAOp4zLO4WGBrOFZpOg/viewform?usp=dialog" target="_blank" class="pricing-cta" style="margin-top:20px;">このプランで申し込む</a>
+                    <a href="#application-info" class="pricing-cta" style="margin-top:20px;">このプランで申し込む</a>
                 </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 制作依頼書について -->
+    <section id="application-info" style="padding: 100px 20px; background: #f8f9fa;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 60px;">📝 制作依頼書について</h2>
+            
+            <div style="max-width: 900px; margin: 0 auto; background: white; padding: 50px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
+                
+                <p style="text-align: center; font-size: 1.2rem; color: #666; margin-bottom: 40px;">
+                    お申込み・ご入金確認後に、以下の内容をお伺いします。<br>
+                    事前にご準備いただくと、スムーズに制作を開始できます。
+                </p>
+                
+                <div style="margin-bottom: 50px;">
+                    <h3 style="font-size: 1.5rem; color: #667eea; margin-bottom: 20px; border-left: 4px solid #667eea; padding-left: 15px;">1️⃣ お客様情報(3項目)</h3>
+                    <ul style="line-height: 2; color: #555;">
+                        <li>お名前</li>
+                        <li>メールアドレス</li>
+                        <li>電話番号</li>
+                    </ul>
+                </div>
+                
+                <div style="margin-bottom: 50px;">
+                    <h3 style="font-size: 1.5rem; color: #667eea; margin-bottom: 20px; border-left: 4px solid #667eea; padding-left: 15px;">2️⃣ お祝いの詳細(4項目)</h3>
+                    
+                    <h4 style="color: #333; margin-top: 25px; margin-bottom: 10px;">お祝いの種類</h4>
+                    <p style="color: #666; line-height: 1.8;">誕生日、結婚式、退職、記念日など</p>
+                    
+                    <h4 style="color: #333; margin-top: 25px; margin-bottom: 10px;">お相手の情報</h4>
+                    <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 15px;">
+                        <p style="color: #666; line-height: 1.8; margin: 0;"><strong>【記入例】</strong></p>
+                        <p style="color: #666; line-height: 1.8; margin: 10px 0 0 0;">
+                            ・お名前:山田花子(仮名可)<br>
+                            ・年齢:60歳<br>
+                            ・性格:明るく、いつも笑顔<br>
+                            ・趣味:ガーデニング、料理<br>
+                            ・職業/経歴:元看護師、40年間病院勤務<br>
+                            ・あなたとの関係:母
+                        </p>
+                    </div>
+                    
+                    <h4 style="color: #333; margin-top: 25px; margin-bottom: 10px;">思い出のエピソード・入れたいメッセージ</h4>
+                    <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin-bottom: 15px;">
+                        <p style="color: #666; line-height: 1.8; margin: 0;"><strong>【記入例】</strong></p>
+                        <p style="color: #666; line-height: 1.8; margin: 10px 0 0 0;">
+                            ・「いつも家族のために頑張ってくれてありがとう」<br>
+                            ・小さい頃、風邪をひいた時にずっと看病してくれた<br>
+                            ・「60年分の感謝を込めて」というフレーズを入れたい
+                        </p>
+                    </div>
+                    
+                    <h4 style="color: #333; margin-top: 25px; margin-bottom: 10px;">キーワード・フレーズ(任意)</h4>
+                    <p style="color: #666; line-height: 1.8;">「ありがとう」「大好き」「これからも元気でいてね」など</p>
+                </div>
+                
+                <div style="margin-bottom: 50px;">
+                    <h3 style="font-size: 1.5rem; color: #667eea; margin-bottom: 20px; border-left: 4px solid #667eea; padding-left: 15px;">3️⃣ 楽曲の雰囲気(6項目)</h3>
+                    <ul style="line-height: 2; color: #555;">
+                        <li>伝えたいメッセージ</li>
+                        <li>リスナーに抱いてほしい感情(希望、勇気、癒し、感動など)</li>
+                        <li>希望する雰囲気・ジャンル(J-POP風、バラード、アコースティックなど)</li>
+                        <li>テンポ感(スロー/ミディアム/アップテンポ)</li>
+                        <li>ボーカルの性別(男性/女性/おまかせ)</li>
+                        <li>避けてほしい表現(任意)</li>
+                    </ul>
+                </div>
+                
+                <div style="margin-bottom: 50px;">
+                    <h3 style="font-size: 1.5rem; color: #667eea; margin-bottom: 20px; border-left: 4px solid #667eea; padding-left: 15px;">4️⃣ 参考曲(任意)</h3>
+                    <p style="color: #666; line-height: 1.8;">参考にしたい既存曲があれば、曲名・アーティスト名をお知らせください</p>
+                </div>
+                
+                <div style="margin-bottom: 50px;">
+                    <h3 style="font-size: 1.5rem; color: #667eea; margin-bottom: 20px; border-left: 4px solid #667eea; padding-left: 15px;">5️⃣ 使用目的と素材</h3>
+                    <ul style="line-height: 2; color: #555;">
+                        <li>楽曲の使用目的(YouTube、SNS、結婚式など)</li>
+                        <li>写真・素材の有無(動画プランの場合)</li>
+                        <li>希望納品日(任意)</li>
+                    </ul>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px; border-radius: 15px; text-align: center; color: white;">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: white;">⏱️ 所要時間:約10〜15分</h3>
+                    <p style="font-size: 1.1rem; margin: 0; opacity: 0.9;">事前にお相手の情報や思い出を整理しておくと、スムーズにご記入いただけます</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- お申込みの流れ -->
+    <section style="padding: 100px 20px; background: white;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 60px;">🚀 お申込みから納品までの流れ</h2>
+            
+            <div style="max-width: 800px; margin: 0 auto;">
+                
+                <div style="display: flex; align-items: center; margin-bottom: 40px;">
+                    <div style="flex-shrink: 0; width: 60px; height: 60px; background: #667eea; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold;">1</div>
+                    <div style="flex: 1; margin-left: 30px;">
+                        <h3 style="font-size: 1.3rem; color: #333; margin-bottom: 10px;">お申込み</h3>
+                        <p style="color: #666; line-height: 1.8; margin: 0;">リザストのお申込みフォームからお申込みください</p>
+                    </div>
+                </div>
+                
+                <div style="display: flex; align-items: center; margin-bottom: 40px;">
+                    <div style="flex-shrink: 0; width: 60px; height: 60px; background: #667eea; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold;">2</div>
+                    <div style="flex: 1; margin-left: 30px;">
+                        <h3 style="font-size: 1.3rem; color: #333; margin-bottom: 10px;">ご入金</h3>
+                        <p style="color: #666; line-height: 1.8; margin: 0;">お申込み後、指定の口座へご入金ください</p>
+                    </div>
+                </div>
+                
+                <div style="display: flex; align-items: center; margin-bottom: 40px;">
+                    <div style="flex-shrink: 0; width: 60px; height: 60px; background: #667eea; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold;">3</div>
+                    <div style="flex: 1; margin-left: 30px;">
+                        <h3 style="font-size: 1.3rem; color: #333; margin-bottom: 10px;">入金確認</h3>
+                        <p style="color: #666; line-height: 1.8; margin: 0;">入金確認後、24時間以内にご連絡いたします</p>
+                    </div>
+                </div>
+                
+                <div style="display: flex; align-items: center; margin-bottom: 40px;">
+                    <div style="flex-shrink: 0; width: 60px; height: 60px; background: #667eea; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold;">4</div>
+                    <div style="flex: 1; margin-left: 30px;">
+                        <h3 style="font-size: 1.3rem; color: #333; margin-bottom: 10px;">契約書＋製作依頼書</h3>
+                        <p style="color: #666; line-height: 1.8; margin: 0;">契約書と製作依頼書をお送りしますので、ご記入ください</p>
+                    </div>
+                </div>
+                
+                <div style="display: flex; align-items: center; margin-bottom: 40px;">
+                    <div style="flex-shrink: 0; width: 60px; height: 60px; background: #FFD700; color: #333; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold;">5</div>
+                    <div style="flex: 1; margin-left: 30px;">
+                        <h3 style="font-size: 1.3rem; color: #333; margin-bottom: 10px;">制作開始!</h3>
+                        <p style="color: #666; line-height: 1.8; margin: 0;">世界に一つだけのお祝いソングを制作いたします</p>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <div style="text-align: center; margin-top: 60px;">
+                <a href="#application-info" style="display: inline-block; background: #FFD700; color: #333; padding: 22px 55px; border-radius: 50px; text-decoration: none; font-size: 1.35rem; font-weight: 700; box-shadow: 0 10px 30px rgba(255,215,0,0.3); transition: all 0.3s ease;">
+                    今すぐ申し込む →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 納期バナー -->
+    <section class="delivery">
+        <div class="container">
+            <div class="delivery-box">
+                <div style="background:rgba(255,255,255,0.2);padding:8px 20px;border-radius:20px;display:inline-block;margin-bottom:20px;">📅 現在の納品時期の目安</div>
+                <div class="delivery-title">お申込みから約2週間</div>
+                <p>※現在の受注状況に基づく目安です。正確な納期は申込後にご案内いたします。</p>
+                <p style="margin-top:15px;opacity:0.8;">最終更新:2026年2月14日</p>
             </div>
         </div>
     </section>
@@ -857,14 +1023,14 @@
                     <div class="faq-question" onclick="toggleFAQ(this)">Q1. 楽曲のクオリティとAI活用について教えてください</div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            <p>ご安心ください。当サービスではAIを「素材生成」に使用し、最終的な構成やニュアンスの調整はプロの人間が行います。過去の事例でも「AI特有の無機質さ」を感じさせない、感情豊かな楽曲（バラード等）の制作実績がございます。</p>
+                            <p>ご安心ください。当サービスではAIを「素材生成」に使用し、最終的な構成やニュアンスの調整はプロの人間が行います。過去の事例でも「AI特有の無機質さ」を感じさせない、感情豊かな楽曲(バラード等)の制作実績がございます。</p>
                             <p>また、楽器の指定も可能です。「ピアノソロで」「アコースティックギターを中心に」といったご要望をヒアリング時にお聞かせください。AIのスピード感と、人の感性を融合させた作品をご提供します。</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">Q2. 著作権の完全譲渡後、どのような利用が可能ですか？</div>
+                    <div class="faq-question" onclick="toggleFAQ(this)">Q2. 著作権の完全譲渡後、どのような利用が可能ですか?</div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
                             <p>はい、料金完済後、著作権は貴殿に「完全譲渡」いたします。したがって、YouTubeのBGMとしての恒久的な利用や、Spotify等での楽曲販売も自由に行っていただけます。</p>
@@ -874,7 +1040,7 @@
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">Q3. 音楽の知識がなくても大丈夫ですか？</div>
+                    <div class="faq-question" onclick="toggleFAQ(this)">Q3. 音楽の知識がなくても大丈夫ですか?</div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
                             <p>音楽知識は全く必要ありません。「明るい・暗い」「テンポが速い・ゆったり」といった抽象的な言葉で十分です。</p>
@@ -884,7 +1050,7 @@
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">Q4. 修正2回とは何を指しますか？</div>
+                    <div class="faq-question" onclick="toggleFAQ(this)">Q4. 修正2回とは何を指しますか?</div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
                             <p>修正1回とは、「一度にご依頼いただく修正項目のまとまり」を指します。例えば、「テンポ変更」と「歌詞の一部変更」を同時にご指示いただいた場合は「1回」とカウントしますのでご安心ください。</p>
@@ -904,47 +1070,47 @@
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">Q6. お祝いの日が迫っています。特急対応は可能ですか？</div>
+                    <div class="faq-question" onclick="toggleFAQ(this)">Q6. お祝いの日が迫っています。特急対応は可能ですか?</div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            <p>お祝いの日が迫っているとのこと、承知いたしました。基本的には品質担保のため約2週間の期間をいただいておりますが、現在の受注状況によっては、特急対応（最短10日程度での完納）が可能な場合もございます。</p>
+                            <p>お祝いの日が迫っているとのこと、承知いたしました。基本的には品質担保のため約2週間の期間をいただいておりますが、現在の受注状況によっては、特急対応(最短10日程度での完納)が可能な場合もございます。</p>
                             <p>スケジュールを調整いたしますので、お申し込みフォームの備考欄、または事前のお問い合わせにて、具体的な希望納品日をお知らせください。</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">Q7. 動画プランは写真1枚だけでも作れますか？</div>
+                    <div class="faq-question" onclick="toggleFAQ(this)">Q7. 動画プランは写真1枚だけでも作れますか?</div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            <p>写真1枚のみでも制作は可能です。その場合、画像を魅力的に見せるカメラワーク（ズームやパン）や歌詞のアニメーションを駆使して、飽きさせない動画に仕上げます。</p>
+                            <p>写真1枚のみでも制作は可能です。その場合、画像を魅力的に見せるカメラワーク(ズームやパン)や歌詞のアニメーションを駆使して、飽きさせない動画に仕上げます。</p>
                             <p>もちろん、複数の写真をいただければ、それらを組み合わせてよりリッチな動画に編集することも可能です。素材の枚数に決まりはありませんが、3〜5枚程度あるとより物語性が増します。</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">Q8. 「初回デモ納品前の全額返金」とは具体的にどういう意味ですか？</div>
+                    <div class="faq-question" onclick="toggleFAQ(this)">Q8. 「初回デモ納品前の全額返金」とは具体的にどういう意味ですか?</div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
                             <p>契約・入金後であっても、実際に制作されたデモ曲をお客様にお渡しする「前」であれば、理由を問わずキャンセル・返金が可能という意味です。</p>
-                            <p>デモ曲をお聴きになった後のキャンセル（返金）は、制作実費が発生しているため原則お受けできませんが、イメージに近づけるための「無料修正」を2回設けておりますので、納得いくまで調整させていただきます。</p>
+                            <p>デモ曲をお聴きになった後のキャンセル(返金)は、制作実費が発生しているため原則お受けできませんが、イメージに近づけるための「無料修正」を2回設けておりますので、納得いくまで調整させていただきます。</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">Q9. どのようなファイル形式で納品されますか？</div>
+                    <div class="faq-question" onclick="toggleFAQ(this)">Q9. どのようなファイル形式で納品されますか?</div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
                             <p>楽曲ファイルは、汎用性の高い「MP3」と、CD制作にも使える高音質の「WAV」の両形式で納品いたします。</p>
-                            <p>動画プランについては、ご希望に合わせて「縦型（TikTok/リール用）」か「横型（YouTube用）」のいずれか、あるいは両方の比率で「MP4」形式にて作成可能です。</p>
+                            <p>動画プランについては、ご希望に合わせて「縦型(TikTok/リール用)」か「横型(YouTube用)」のいずれか、あるいは両方の比率で「MP4」形式にて作成可能です。</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="faq-item">
-                    <div class="faq-question" onclick="toggleFAQ(this)">Q10. 歌詞に特定のキーワードを入れてもらうことは可能ですか？</div>
+                    <div class="faq-question" onclick="toggleFAQ(this)">Q10. 歌詞に特定のキーワードを入れてもらうことは可能ですか?</div>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
                             <p>歌詞はAIが生成したベースを元に、プロが推敲を行います。「必ず入れたいキーワード」や「重要なセリフ」の指定は大歓迎です。</p>
@@ -963,7 +1129,7 @@
             <div>
                 <h3 style="margin-bottom:20px;">オリジナルお祝いソング制作サービス</h3>
                 <p>AI技術×プロの感性で、世界に一つだけの特別な楽曲を制作。大切な人への最高の贈り物を。</p>
-                <p style="margin-top:18px;"><strong>運営：</strong>新井健司<br><strong>住所：</strong>〒369-1216 埼玉県大里郡寄居町富田656</p>
+                <p style="margin-top:18px;"><strong>運営:</strong>新井健司<br><strong>住所:</strong>〒369-1216 埼玉県大里郡寄居町富田656</p>
             </div>
             <div>
                 <h4 style="margin-bottom:15px;">サービス</h4>
@@ -981,7 +1147,7 @@
             </div>
         </div>
         <div style="text-align:center;padding-top:35px;border-top:1px solid rgba(255,255,255,0.1);opacity:0.7;">
-            <p>&copy; 2025 オリジナルソング制作サービス（新井健司）</p>
+            <p>&copy; 2025 オリジナルソング制作サービス(新井健司)</p>
         </div>
     </footer>
     
